@@ -1,0 +1,222 @@
+/* ===== КАСТОМНЫЕ СТИЛИ ПОВЕРХ BOOTSTRAP ===== */
+
+/* Градиентный фон для Hero секций */
+.hero-section.bg-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* Переходы для карточек */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Анимация для изображений в карточках */
+.card-img-top {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+    overflow: hidden;
+}
+
+/* Прогресс-бары с градиентом */
+.progress-bar {
+    background: linear-gradient(90deg, #667eea, #764ba2) !important;
+}
+
+/* Кнопки фильтрации */
+.filter-btn {
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background-color: #667eea !important;
+    border-color: #667eea !important;
+    color: white !important;
+}
+
+/* Анимация появления карточек проектов */
+.project-card {
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ===== КАСТОМНЫЕ СТИЛИ ПОВЕРХ BOOTSTRAP ===== */
+
+/* Градиентный фон для Hero секций */
+.hero-section.bg-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* Переходы для карточек */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none !important;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Анимация для изображений в карточках */
+.card-img-top {
+    transition: transform 0.5s ease;
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+    overflow: hidden;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+/* Прогресс-бары с градиентом */
+.progress-bar {
+    background: linear-gradient(90deg, #667eea, #764ba2) !important;
+}
+
+/* Кнопки фильтрации */
+.filter-btn {
+    transition: all 0.3s ease;
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+}
+
+.filter-btn.active {
+    background-color: #667eea !important;
+    border-color: #667eea !important;
+    color: white !important;
+    transform: scale(1.05);
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Анимация появления карточек проектов */
+.project-card {
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Стили для badges в карточках */
+.card-body .badge.bg-light {
+    border: 1px solid #dee2e6;
+}
+
+/* Улучшенные кнопки в карточках */
+.card-body .btn {
+    transition: all 0.3s ease;
+}
+
+.card-body .btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Иконки контактов */
+.contact-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e7f0ff;
+    border-radius: 10px;
+}
+
+/* Дополнительные стили для badges */
+.badge {
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+}
+
+/* Плавная прокрутка */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar активная ссылка */
+.navbar-nav .nav-link.active {
+    color: #667eea !important;
+    position: relative;
+}
+
+.navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #667eea;
+}
+
+/* Анимация для форм */
+.form-control:focus,
+.form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+}
+
+/* Стили для модального окна Bootstrap */
+.modal-content {
+    border-radius: 15px;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+/* Улучшенные тени */
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.075) !important;
+}
+
+/* Стили для категорий проектов в углу */
+.position-absolute.badge {
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Контейнер для изображений карточек */
+.card .position-relative {
+    overflow: visible !important;
+}
+
+/* Hover эффект для ссылок GitHub в карточках */
+.btn-outline-secondary:hover {
+    background-color: #212529;
+    color: white;
+}
+
+/* Responsive улучшения */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem !important;
+    }
+    
+    .hero-section .lead {
+        font-size: 1rem !important;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+}
+

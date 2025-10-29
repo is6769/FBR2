@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебный дневник - Иван Петров</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="../index.html">
+                <i class="bi bi-person-circle me-2"></i>Иван Петров
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Проекты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="diary.html">Дневник</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Page Header -->
+        <section class="hero-section bg-gradient py-5">
+            <div class="container text-center text-white">
+                <h1 class="display-4 fw-bold">Мой учебный прогресс</h1>
+                <p class="lead">Отслеживание моего образовательного пути и достижений</p>
+            </div>
+        </section>
+
+        <!-- Diary Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Левая колонка - записи дневника -->
+                    <div class="col-lg-8">
+                        <h2 class="mb-4">Записи дневника</h2>
+                        
+                        <!-- Запись 1 -->
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar3 me-1"></i>15 декабря 2024
+                                    </small>
+                                    <span class="badge bg-success">✓ Завершено</span>
+                                </div>
+                                <h5 class="card-title">Верстка макета сайта</h5>
+                                <p class="card-text">Завершил работу над адаптивным макетом личного сайта. Использовал CSS Grid и Flexbox для создания современного и отзывчивого дизайна. Сайт корректно отображается на всех устройствах.</p>
+                                <div>
+                                    <span class="badge bg-primary me-1">HTML</span>
+                                    <span class="badge bg-primary me-1">CSS</span>
+                                    <span class="badge bg-primary">Grid</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Запись 2 -->
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar3 me-1"></i>10 декабря 2024
+                                    </small>
+                                    <span class="badge bg-success">✓ Завершено</span>
+                                </div>
+                                <h5 class="card-title">JavaScript основы</h5>
+                                <p class="card-text">Изучил основы JavaScript: переменные, типы данных, условные операторы и циклы. Решил несколько практических задач на CodeWars. Начал понимать асинхронность и работу с промисами.</p>
+                                <div>
+                                    <span class="badge bg-success me-1">JavaScript</span>
+                                    <span class="badge bg-success">ES6</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Запись 3 -->
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar3 me-1"></i>5 декабря 2024
+                                    </small>
+                                    <span class="badge bg-warning text-dark">⏳ В процессе</span>
+                                </div>
+                                <h5 class="card-title">Работа с формами</h5>
+                                <p class="card-text">Изучаю валидацию форм на стороне клиента. Реализовал базовую проверку email и телефона с использованием регулярных выражений. Планирую добавить более сложную валидацию.</p>
+                                <div>
+                                    <span class="badge bg-primary me-1">HTML Forms</span>
+                                    <span class="badge bg-primary">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Запись 4 -->
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar3 me-1"></i>1 декабря 2024
+                                    </small>
+                                    <span class="badge bg-warning text-dark">⏳ В процессе</span>
+                                </div>
+                                <h5 class="card-title">Адаптивный дизайн</h5>
+                                <p class="card-text">Работаю над созданием адаптивного меню и оптимизацией изображений для различных разрешений экранов. Использую медиа-запросы и технику mobile-first.</p>
+                                <div>
+                                    <span class="badge bg-info me-1">Responsive</span>
+                                    <span class="badge bg-info">Media Queries</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Запись 5 -->
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar3 me-1"></i>25 ноября 2024
+                                    </small>
+                                    <span class="badge bg-success">✓ Завершено</span>
+                                </div>
+                                <h5 class="card-title">Bootstrap основы</h5>
+                                <p class="card-text">Освоил базовые компоненты Bootstrap: сетку, карточки, навигацию и формы. Создал прототип портфолио с использованием готовых компонентов фреймворка.</p>
+                                <div>
+                                    <span class="badge bg-primary me-1">Bootstrap</span>
+                                    <span class="badge bg-primary">CSS Framework</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Правая колонка - текущие курсы -->
+                    <div class="col-lg-4">
+                        <h2 class="mb-4">Текущие курсы</h2>
+                        
+                        <!-- Курс 1 -->
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Веб-разработка</h5>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <small class="text-muted">Прогресс</small>
+                                    <small class="fw-bold text-primary">90%</small>
+                                </div>
+                                <div class="progress mb-2" style="height: 10px;">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="card-text small">Основы HTML, CSS и современных подходов к верстке</p>
+                            </div>
+                        </div>
+
+                        <!-- Курс 2 -->
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">JavaScript</h5>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <small class="text-muted">Прогресс</small>
+                                    <small class="fw-bold text-primary">70%</small>
+                                </div>
+                                <div class="progress mb-2" style="height: 10px;">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="card-text small">Программирование на JavaScript и работа с DOM</p>
+                            </div>
+                        </div>
+
+                        <!-- Курс 3 -->
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">React</h5>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <small class="text-muted">Прогресс</small>
+                                    <small class="fw-bold text-primary">50%</small>
+                                </div>
+                                <div class="progress mb-2" style="height: 10px;">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="card-text small">Современная библиотека для создания пользовательских интерфейсов</p>
+                            </div>
+                        </div>
+
+                        <!-- Курс 4 -->
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Git & GitHub</h5>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <small class="text-muted">Прогресс</small>
+                                    <small class="fw-bold text-primary">75%</small>
+                                </div>
+                                <div class="progress mb-2" style="height: 10px;">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="card-text small">Контроль версий и совместная разработка</p>
+                            </div>
+                        </div>
+
+                        <!-- Форма добавления записи -->
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Добавить запись</h5>
+                                <form id="addEntryForm">
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" placeholder="Название темы" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <textarea class="form-control" rows="4" placeholder="Описание..." required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="bi bi-plus-circle me-1"></i>Добавить запись
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2024 Иван Петров. Все права защищены.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-center justify-content-md-end gap-3">
+                        <a href="contacts.html" class="text-white text-decoration-none">Контакты</a>
+                        <a href="#" class="text-white text-decoration-none">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <a href="#" class="text-white text-decoration-none">
+                            <i class="bi bi-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
