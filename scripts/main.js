@@ -1,10 +1,10 @@
-// Главный JavaScript файл
-// Здесь можно добавить общую функциональность для всех страниц
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Сайт загружен успешно!');
     
-    // Плавная прокрутка для всех ссылок-якорей
+    
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Анимация появления элементов при прокрутке
+    
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Наблюдаем за карточками проектов и другими элементами
+    
     document.querySelectorAll('.project-card, .skill-item, .diary-entry').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';

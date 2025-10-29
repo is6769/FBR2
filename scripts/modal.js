@@ -1,4 +1,4 @@
-// Данные о проектах для Bootstrap Modal
+
 const projectsData = {
     project1: {
         title: 'Личный сайт',
@@ -80,7 +80,7 @@ const projectsData = {
     }
 };
 
-// Функция для загрузки данных проекта в Bootstrap Modal
+
 function loadProject(projectId) {
     const project = projectsData[projectId];
     
@@ -113,5 +113,5 @@ function loadProject(projectId) {
     }
 }
 
-// Глобальная функция для совместимости с onclick
+
 window.loadProject = loadProject;
