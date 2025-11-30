@@ -20,10 +20,10 @@
     --bg-dark: #1e293b;
     --bg-light: #f1f5f9;
 
-    /* Текст */
+    /* Текст - улучшенный контраст */
     --text-primary: #0f172a;
-    --text-secondary: #64748b;
-    --text-muted: #94a3b8;
+    --text-secondary: #475569; /* Улучшен контраст с 64748b */
+    --text-muted: #64748b; /* Улучшен контраст с 94a3b8 */
     --text-white: #ffffff;
 
     /* Отступы */
@@ -113,14 +113,28 @@ main {
     inset-block-start: var(--space-md);
 }
 
-/* --- 3. Видимый фокус (доступность) --- */
+/* --- 3. Видимый фокус (доступность WCAG 2.4.7) --- */
 :focus-visible {
     outline: 3px solid var(--color-accent);
-    outline-offset: 2px;
+    outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
 }
 
 a, button, input, textarea, select {
-    outline-offset: 2px;
+    outline-offset: 3px;
+}
+
+/* Улучшенный фокус для интерактивных элементов */
+.btn:focus-visible,
+.filter-btn:focus-visible,
+.nav__link:focus-visible,
+.social-btn:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgb(37 99 235 / 0.2);
 }
 
 /* Крупные цели клика на тач-устройствах */
@@ -212,6 +226,7 @@ a, button, input, textarea, select {
     display: inline-flex;
     align-items: center;
     padding: var(--space-sm) var(--space-md);
+    min-height: 44px; /* WCAG 2.5.5 */
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
@@ -382,7 +397,7 @@ a, button, input, textarea, select {
     justify-content: center;
 }
 
-/* --- 7. Кнопки --- */
+/* --- 7. Кнопки (WCAG 2.5.5: минимум 44x44px) --- */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -390,6 +405,7 @@ a, button, input, textarea, select {
     gap: var(--space-sm);
     padding-inline: var(--space-lg);
     padding-block: max(var(--space-sm), calc((44px - 1em) / 2));
+    min-height: 44px;
     font: inherit;
     font-weight: 600;
     text-decoration: none;
@@ -668,7 +684,11 @@ a, button, input, textarea, select {
 }
 
 .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
     padding: var(--space-sm) var(--space-lg);
+    min-height: 44px; /* WCAG 2.5.5 */
     font: inherit;
     font-weight: 500;
     background: var(--bg-white);
@@ -690,6 +710,23 @@ a, button, input, textarea, select {
 }
 
 /* --- 15. Формы (доступность) --- */
+.form-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-required-note {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+}
+
+.required-indicator {
+    color: var(--color-danger);
+    font-weight: 600;
+}
+
 .form-group {
     margin-bottom: var(--space-md);
 }
@@ -718,7 +755,16 @@ a, button, input, textarea, select {
 .form-input:focus,
 .form-textarea:focus,
 .form-select:focus {
-    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgb(102 126 234 / 0.2);
+}
+
+/* Улучшенный фокус для клавиатуры */
+.form-input:focus-visible,
+.form-textarea:focus-visible,
+.form-select:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
     border-color: var(--color-primary);
     box-shadow: 0 0 0 3px rgb(102 126 234 / 0.2);
 }
@@ -746,9 +792,37 @@ a, button, input, textarea, select {
 }
 
 .form-hint {
+    display: block;
     font-size: 0.875rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     margin-top: var(--space-xs);
+}
+
+.form-error {
+    display: none;
+    font-size: 0.875rem;
+    color: var(--color-danger);
+    margin-top: var(--space-xs);
+}
+
+.form-error:not(:empty) {
+    display: block;
+}
+
+/* Состояния валидации */
+.form-input--invalid,
+.form-textarea--invalid {
+    border-color: var(--color-danger);
+}
+
+.form-input--invalid:focus,
+.form-textarea--invalid:focus {
+    box-shadow: 0 0 0 3px rgb(239 68 68 / 0.2);
+}
+
+.form-input--valid,
+.form-textarea--valid {
+    border-color: var(--color-success);
 }
 
 /* Визуально скрытый (для screen readers) */
@@ -785,6 +859,21 @@ a, button, input, textarea, select {
 }
 
 /* --- 17. Контактная информация --- */
+/* Подзаголовки секций */
+.section-subtitle {
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem);
+    font-weight: 600;
+    margin: 0 0 var(--space-lg);
+    color: var(--text-primary);
+}
+
+/* Список контактов */
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-md);
+}
+
 .contact-card {
     display: flex;
     align-items: center;
@@ -802,7 +891,7 @@ a, button, input, textarea, select {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgb(102 126 234 / 0.1), rgb(118 75 162 / 0.1));
+    background: linear-gradient(135deg, rgb(102 126 234 / 0.15), rgb(118 75 162 / 0.15));
     border-radius: var(--radius-md);
     flex-shrink: 0;
 }
@@ -813,22 +902,39 @@ a, button, input, textarea, select {
     fill: var(--color-primary);
 }
 
-.contact-card__content h3 {
+.contact-card__title {
     font-size: 1rem;
     font-weight: 600;
     margin: 0 0 var(--space-xs);
+    color: var(--text-primary);
 }
 
-.contact-card__content a,
-.contact-card__content p {
+.contact-card__link,
+.contact-card__text {
     font-size: 0.95rem;
     color: var(--text-secondary);
     margin: 0;
     text-decoration: none;
 }
 
-.contact-card__content a:hover {
+.contact-card__link:hover,
+.contact-card__link:focus {
     color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* Card подзаголовки */
+.card__subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-md);
+    color: var(--text-primary);
+}
+
+.card__text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
 }
 
 /* Социальные кнопки */
@@ -1023,16 +1129,58 @@ html {
 
 /* --- 22. Доступность: повышенный контраст --- */
 @media (prefers-contrast: more) {
+    :root {
+        --text-secondary: #1e293b;
+        --text-muted: #334155;
+    }
+
     .btn,
     .filter-btn,
     .card {
         box-shadow: inset 0 0 0 2px currentColor;
     }
 
+    .nav__link {
+        border: 2px solid transparent;
+    }
+
+    .nav__link:hover,
+    .nav__link:focus {
+        border-color: currentColor;
+    }
+
     .form-input,
     .form-textarea,
     .form-select {
         border-width: 3px;
+        border-color: var(--text-primary);
+    }
+
+    .badge {
+        border: 2px solid currentColor;
+    }
+
+    .progress {
+        border: 2px solid var(--text-primary);
+    }
+}
+
+/* --- 22a. Поддержка Windows High Contrast Mode --- */
+@media (forced-colors: active) {
+    .btn,
+    .filter-btn,
+    .nav__link,
+    .card {
+        border: 2px solid currentColor;
+    }
+
+    .progress__bar {
+        background: Highlight;
+    }
+
+    .skip-link {
+        background: Canvas;
+        color: CanvasText;
     }
 }
 

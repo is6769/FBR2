@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Портфолио Игоря Швеца - студента веб-разработчика. Проекты, навыки и контакты.">
     <title>Игорь Швец - Портфолио</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
@@ -13,17 +14,17 @@
     <!-- Header с навигацией -->
     <header class="header" role="banner">
         <div class="header__inner">
-            <a class="header__logo" href="index.html">
+            <a class="header__logo" href="index.html" aria-label="Игорь Швец - на главную">
                 <span class="header__logo-icon" aria-hidden="true">ИШ</span>
-                Игорь Швец
+                <span>Игорь Швец</span>
             </a>
 
-            <button class="nav__toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
-                <span class="nav__toggle-icon"></span>
+            <button class="nav__toggle" type="button" aria-label="Открыть меню навигации" aria-expanded="false" aria-controls="main-nav">
+                <span class="nav__toggle-icon" aria-hidden="true"></span>
             </button>
 
-            <nav class="nav" aria-label="Основная навигация">
-                <ul class="nav__list">
+            <nav class="nav" id="main-nav" aria-label="Основная навигация">
+                <ul class="nav__list" role="list">
                     <li><a class="nav__link nav__link--active" href="index.html" aria-current="page">Главная</a></li>
                     <li><a class="nav__link" href="pages/projects.html">Проекты</a></li>
                     <li><a class="nav__link" href="pages/diary.html">Дневник</a></li>
@@ -33,38 +34,35 @@
         </div>
     </header>
 
-    <main id="main">
-        <!-- Hero секция с адаптивным изображением -->
-        <section class="hero">
+    <main id="main" role="main">
+        <!-- Hero секция -->
+        <section class="hero" aria-labelledby="hero-title">
             <div class="container">
                 <div class="hero__inner">
                     <figure class="hero__image">
-                        <!-- Picture element с поддержкой форматов и Retina -->
                         <picture>
-                            <!-- WebP для современных браузеров -->
                             <source
                                 type="image/webp"
                                 srcset="images/photo.png 1x, images/photo.png 2x"
                                 media="(min-width: 1px)">
-                            <!-- PNG с поддержкой Retina -->
                             <img
                                 class="hero__photo"
                                 src="images/photo.png"
                                 srcset="images/photo.png 1x, images/photo.png 2x"
                                 width="200"
                                 height="200"
-                                alt="Портрет Игоря Швеца"
+                                alt="Портрет Игоря Швеца - студента веб-разработчика"
                                 fetchpriority="high">
                         </picture>
                     </figure>
 
                     <div class="hero__content">
-                        <h1 class="hero__title">Привет! Я студент веб-разработчик</h1>
+                        <h1 id="hero-title" class="hero__title">Привет! Я студент веб-разработчик</h1>
                         <p class="hero__subtitle"><strong>Институт:</strong> Институт промышленных технологий и индустриального программирования (ИПТИП)</p>
                         <p class="hero__subtitle"><strong>Группа:</strong> ЭФБО-02-24</p>
                         <p class="hero__text">Увлекаюсь веб-разработкой и созданием современных интерактивных приложений. Постоянно изучаю новые технологии и совершенствую свои навыки.</p>
-                        <a href="assets/resume.pdf" class="btn btn--light btn--lg" download>
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <a href="assets/resume.pdf" class="btn btn--light btn--lg" download aria-label="Скачать резюме в формате PDF">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
                             </svg>
                             Скачать резюме
@@ -79,43 +77,43 @@
             <div class="container">
                 <h2 id="skills-title" class="section__title">Мои навыки</h2>
 
-                <div class="skills__list">
-                    <div class="skill">
+                <div class="skills__list" role="list" aria-label="Список навыков">
+                    <div class="skill" role="listitem">
                         <div class="skill__header">
-                            <span class="skill__name">HTML/CSS</span>
-                            <span class="skill__percent">90%</span>
+                            <span class="skill__name" id="skill-html">HTML/CSS</span>
+                            <span class="skill__percent" aria-hidden="true">90%</span>
                         </div>
-                        <div class="progress" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="HTML/CSS: 90%">
+                        <div class="progress" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-html">
                             <div class="progress__bar" style="width: 90%"></div>
                         </div>
                     </div>
 
-                    <div class="skill">
+                    <div class="skill" role="listitem">
                         <div class="skill__header">
-                            <span class="skill__name">JavaScript</span>
-                            <span class="skill__percent">80%</span>
+                            <span class="skill__name" id="skill-js">JavaScript</span>
+                            <span class="skill__percent" aria-hidden="true">80%</span>
                         </div>
-                        <div class="progress" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript: 80%">
+                        <div class="progress" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-js">
                             <div class="progress__bar" style="width: 80%"></div>
                         </div>
                     </div>
 
-                    <div class="skill">
+                    <div class="skill" role="listitem">
                         <div class="skill__header">
-                            <span class="skill__name">Адаптивная вёрстка</span>
-                            <span class="skill__percent">85%</span>
+                            <span class="skill__name" id="skill-responsive">Адаптивная вёрстка</span>
+                            <span class="skill__percent" aria-hidden="true">85%</span>
                         </div>
-                        <div class="progress" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Адаптивная вёрстка: 85%">
+                        <div class="progress" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-responsive">
                             <div class="progress__bar" style="width: 85%"></div>
                         </div>
                     </div>
 
-                    <div class="skill">
+                    <div class="skill" role="listitem">
                         <div class="skill__header">
-                            <span class="skill__name">React</span>
-                            <span class="skill__percent">60%</span>
+                            <span class="skill__name" id="skill-react">React</span>
+                            <span class="skill__percent" aria-hidden="true">60%</span>
                         </div>
-                        <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="React: 60%">
+                        <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-react">
                             <div class="progress__bar" style="width: 60%"></div>
                         </div>
                     </div>
@@ -129,18 +127,15 @@
                 <h2 id="projects-title" class="section__title">Лучшие проекты</h2>
 
                 <div class="projects-area">
-                    <div class="projects-grid">
+                    <div class="projects-grid" role="list" aria-label="Список проектов">
                         <!-- Карточка 1 -->
-                        <article class="card">
+                        <article class="card" role="listitem">
                             <div class="card__image-wrapper">
-                                <!-- Picture element с разными изображениями для разных экранов -->
                                 <picture>
-                                    <!-- WebP для современных браузеров -->
                                     <source
                                         type="image/webp"
                                         srcset="images/mysite.png"
                                         media="(min-width: 1px)">
-                                    <!-- Разные размеры для разных экранов -->
                                     <source
                                         media="(min-width: 1200px)"
                                         srcset="images/mysite.png">
@@ -152,14 +147,14 @@
                                         src="images/mysite.png"
                                         width="400"
                                         height="200"
-                                        alt="Скриншот личного сайта"
+                                        alt="Скриншот личного сайта - адаптивный веб-сайт с современным дизайном"
                                         loading="lazy">
                                 </picture>
                             </div>
                             <div class="card__body">
                                 <h3 class="card__title">Личный сайт</h3>
                                 <p class="card__text">Адаптивный личный веб-сайт с современным дизайном</p>
-                                <div class="card__tags">
+                                <div class="card__tags" aria-label="Технологии">
                                     <span class="badge badge--primary">HTML</span>
                                     <span class="badge badge--primary">CSS</span>
                                 </div>
@@ -167,7 +162,7 @@
                         </article>
 
                         <!-- Карточка 2 -->
-                        <article class="card">
+                        <article class="card" role="listitem">
                             <div class="card__image-wrapper">
                                 <picture>
                                     <source
@@ -181,14 +176,14 @@
                                         src="images/todolist.jpg"
                                         width="400"
                                         height="200"
-                                        alt="Скриншот Todo-приложения"
+                                        alt="Скриншот Todo-приложения - интерфейс управления задачами"
                                         loading="lazy">
                                 </picture>
                             </div>
                             <div class="card__body">
                                 <h3 class="card__title">Todo-приложение</h3>
                                 <p class="card__text">Интерактивное приложение для управления задачами</p>
-                                <div class="card__tags">
+                                <div class="card__tags" aria-label="Технологии">
                                     <span class="badge badge--success">JavaScript</span>
                                     <span class="badge">LocalStorage</span>
                                 </div>
@@ -196,7 +191,7 @@
                         </article>
 
                         <!-- Карточка 3 -->
-                        <article class="card">
+                        <article class="card" role="listitem">
                             <div class="card__image-wrapper">
                                 <picture>
                                     <source
@@ -210,14 +205,14 @@
                                         src="images/eshop.png"
                                         width="400"
                                         height="200"
-                                        alt="Скриншот интернет-магазина"
+                                        alt="Скриншот интернет-магазина - SPA на React с корзиной"
                                         loading="lazy">
                                 </picture>
                             </div>
                             <div class="card__body">
                                 <h3 class="card__title">Интернет-магазин</h3>
                                 <p class="card__text">SPA приложение интернет-магазина на React</p>
-                                <div class="card__tags">
+                                <div class="card__tags" aria-label="Технологии">
                                     <span class="badge badge--info">React</span>
                                     <span class="badge">Redux</span>
                                 </div>
@@ -227,7 +222,10 @@
                 </div>
 
                 <div class="text-center" style="margin-top: var(--space-xl)">
-                    <a href="pages/projects.html" class="btn btn--primary btn--lg">Смотреть все проекты</a>
+                    <a href="pages/projects.html" class="btn btn--primary btn--lg">
+                        Смотреть все проекты
+                        <span class="visually-hidden">(переход на страницу проектов)</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -238,21 +236,23 @@
         <div class="container">
             <div class="footer__inner">
                 <p class="footer__copy">&copy; 2025 Игорь Швец. Все права защищены.</p>
-                <div class="footer__links">
+                <nav class="footer__links" aria-label="Дополнительная навигация">
                     <a class="footer__link" href="pages/contacts.html">Контакты</a>
                     <a class="footer__link" href="https://github.com/is6769" target="_blank" rel="noopener noreferrer">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
                         GitHub
+                        <span class="visually-hidden">(открывается в новой вкладке)</span>
                     </a>
                     <a class="footer__link" href="#" target="_blank" rel="noopener noreferrer">
-                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                         </svg>
                         LinkedIn
+                        <span class="visually-hidden">(открывается в новой вкладке)</span>
                     </a>
-                </div>
+                </nav>
             </div>
         </div>
     </footer>

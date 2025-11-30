@@ -1,5 +1,5 @@
 /**
- * Валидация форм - чистый JavaScript (без Bootstrap)
+ * Валидация форм - чистый JavaScript с поддержкой доступности
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -7,57 +7,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!form) return;
 
-    // CSS классы для состояний валидации
-    const VALID_CLASS = 'form-input--valid';
-    const INVALID_CLASS = 'form-input--invalid';
-
-    // Добавляем CSS стили для валидации
-    const style = document.createElement('style');
-    style.textContent = `
-        .form-input--valid {
-            border-color: var(--color-success) !important;
-        }
-        .form-input--invalid {
-            border-color: var(--color-danger) !important;
-        }
-        .form-input--invalid + .form-error,
-        .form-textarea--invalid + .form-error {
-            display: block !important;
-        }
-        .form-textarea--valid {
-            border-color: var(--color-success) !important;
-        }
-        .form-textarea--invalid {
-            border-color: var(--color-danger) !important;
-        }
-    `;
-    document.head.appendChild(style);
-
     /**
-     * Валидирует поле и возвращает результат
+     * Валидирует поле и возвращает сообщение об ошибке или пустую строку
      */
     function validateField(field) {
         const value = field.value.trim();
         const type = field.type;
         const name = field.name;
-        let isValid = true;
 
         // Проверка обязательности
         if (field.required && !value) {
-            isValid = false;
+            if (name === 'name') return 'Пожалуйста, введите ваше имя';
+            if (name === 'email') return 'Пожалуйста, введите email';
+            if (name === 'message') return 'Пожалуйста, введите сообщение';
+            return 'Это поле обязательно для заполнения';
         }
 
         // Проверка минимальной длины
         const minLength = field.getAttribute('minlength');
         if (minLength && value.length < parseInt(minLength)) {
-            isValid = false;
+            if (name === 'name') return `Имя должно содержать минимум ${minLength} символа`;
+            if (name === 'message') return `Сообщение должно содержать минимум ${minLength} символов`;
+            return `Минимум ${minLength} символов`;
         }
 
         // Проверка email
         if (type === 'email' && value) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(value)) {
-                isValid = false;
+                return 'Пожалуйста, введите корректный email адрес';
             }
         }
 
@@ -65,27 +43,42 @@ document.addEventListener('DOMContentLoaded', function() {
         if (type === 'tel' && value) {
             const phoneRegex = /^[\d\s\+\-\(\)]+$/;
             if (!phoneRegex.test(value) || value.length < 10) {
-                isValid = false;
+                return 'Пожалуйста, введите корректный номер телефона';
             }
         }
 
-        return isValid;
+        return ''; // Нет ошибок
     }
 
     /**
-     * Обновляет визуальное состояние поля
+     * Обновляет визуальное состояние поля и ARIA атрибуты
      */
-    function updateFieldState(field, isValid) {
+    function updateFieldState(field, errorMessage) {
         const isTextarea = field.tagName === 'TEXTAREA';
         const validClass = isTextarea ? 'form-textarea--valid' : 'form-input--valid';
         const invalidClass = isTextarea ? 'form-textarea--invalid' : 'form-input--invalid';
+        const errorElement = document.getElementById(`${field.name}-error`);
 
-        if (isValid) {
-            field.classList.remove(invalidClass);
-            field.classList.add(validClass);
-        } else {
+        if (errorMessage) {
+            // Поле невалидно
             field.classList.remove(validClass);
             field.classList.add(invalidClass);
+            field.setAttribute('aria-invalid', 'true');
+
+            if (errorElement) {
+                errorElement.textContent = errorMessage;
+                field.setAttribute('aria-describedby', `${field.name}-hint ${field.name}-error`);
+            }
+        } else {
+            // Поле валидно
+            field.classList.remove(invalidClass);
+            field.classList.add(validClass);
+            field.setAttribute('aria-invalid', 'false');
+
+            if (errorElement) {
+                errorElement.textContent = '';
+                field.setAttribute('aria-describedby', `${field.name}-hint`);
+            }
         }
     }
 
@@ -99,6 +92,12 @@ document.addEventListener('DOMContentLoaded', function() {
             'form-textarea--valid',
             'form-textarea--invalid'
         );
+        field.removeAttribute('aria-invalid');
+
+        const errorElement = document.getElementById(`${field.name}-error`);
+        if (errorElement) {
+            errorElement.textContent = '';
+        }
     }
 
     // Обработка отправки формы
@@ -107,13 +106,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const fields = form.querySelectorAll('input, textarea');
         let formIsValid = true;
+        let firstInvalidField = null;
 
         fields.forEach(field => {
-            const isValid = validateField(field);
-            updateFieldState(field, isValid);
+            const errorMessage = validateField(field);
+            updateFieldState(field, errorMessage);
 
-            if (!isValid && field.required) {
+            if (errorMessage && !firstInvalidField) {
                 formIsValid = false;
+                firstInvalidField = field;
             }
         });
 
@@ -122,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const successMessage = document.getElementById('formSuccess');
             if (successMessage) {
                 successMessage.classList.remove('alert--hidden');
+                successMessage.focus();
 
                 // Скрываем через 5 секунд
                 setTimeout(() => {
@@ -134,6 +136,11 @@ document.addEventListener('DOMContentLoaded', function() {
             fields.forEach(resetFieldState);
 
             console.log('Форма успешно отправлена!');
+        } else {
+            // Фокус на первое невалидное поле
+            if (firstInvalidField) {
+                firstInvalidField.focus();
+            }
         }
     });
 
@@ -142,8 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
     inputs.forEach(input => {
         input.addEventListener('input', function() {
             if (this.value.length > 0) {
-                const isValid = validateField(this);
-                updateFieldState(this, isValid);
+                const errorMessage = validateField(this);
+                updateFieldState(this, errorMessage);
             } else {
                 resetFieldState(this);
             }
@@ -152,8 +159,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Валидация при потере фокуса
         input.addEventListener('blur', function() {
             if (this.required || this.value.length > 0) {
-                const isValid = validateField(this);
-                updateFieldState(this, isValid);
+                const errorMessage = validateField(this);
+                updateFieldState(this, errorMessage);
             }
         });
     });

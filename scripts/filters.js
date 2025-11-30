@@ -1,10 +1,23 @@
 /**
- * Фильтрация проектов - чистый JavaScript
+ * Фильтрация проектов - чистый JavaScript с поддержкой доступности
  */
 
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
+    const projectsGrid = document.getElementById('projectsGrid');
+
+    // Создаём aria-live region для объявлений
+    let liveRegion = document.getElementById('filter-status');
+    if (!liveRegion && projectsGrid) {
+        liveRegion = document.createElement('div');
+        liveRegion.id = 'filter-status';
+        liveRegion.setAttribute('role', 'status');
+        liveRegion.setAttribute('aria-live', 'polite');
+        liveRegion.setAttribute('aria-atomic', 'true');
+        liveRegion.className = 'visually-hidden';
+        projectsGrid.parentNode.insertBefore(liveRegion, projectsGrid);
+    }
 
     // Инициализация - устанавливаем начальные стили
     projectCards.forEach(card => {
@@ -15,11 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Убираем активный класс со всех кнопок
-            filterButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
+            // Убираем активный класс со всех кнопок и сбрасываем aria-pressed
+            filterButtons.forEach(btn => {
+                btn.classList.remove('filter-btn--active');
+                btn.setAttribute('aria-pressed', 'false');
+            });
 
             // Добавляем активный класс на текущую кнопку
             this.classList.add('filter-btn--active');
+            this.setAttribute('aria-pressed', 'true');
 
             const filterValue = this.getAttribute('data-filter');
 
@@ -62,7 +79,25 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                     });
                 });
+
+                // Объявляем результат для screen readers
+                if (liveRegion) {
+                    const filterName = this.textContent.trim();
+                    const count = toShow.length;
+                    liveRegion.textContent = `Показано ${count} ${getProjectWord(count)} в категории "${filterName}"`;
+                }
             }, 200);
         });
     });
+
+    // Вспомогательная функция для правильного склонения
+    function getProjectWord(count) {
+        const lastDigit = count % 10;
+        const lastTwoDigits = count % 100;
+
+        if (lastTwoDigits >= 11 && lastTwoDigits <= 14) return 'проектов';
+        if (lastDigit === 1) return 'проект';
+        if (lastDigit >= 2 && lastDigit <= 4) return 'проекта';
+        return 'проектов';
+    }
 });
