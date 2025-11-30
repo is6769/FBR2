@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body class="page">
-    <!-- Skip-link для доступности -->
     <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
-    <!-- Header с навигацией -->
     <header class="header" role="banner">
         <div class="header__inner">
             <a class="header__logo" href="../index.html" aria-label="Игорь Швец - на главную">
@@ -35,7 +33,6 @@
     </header>
 
     <main id="main" role="main">
-        <!-- Hero секция -->
         <section class="hero hero--centered" aria-labelledby="page-title">
             <div class="container">
                 <div class="hero__inner">
@@ -45,12 +42,10 @@
             </div>
         </section>
 
-        <!-- Секция проектов с фильтрами -->
         <section class="section" aria-labelledby="projects-section-title">
             <div class="container">
                 <h2 id="projects-section-title" class="visually-hidden">Список проектов</h2>
 
-                <!-- Фильтры -->
                 <div class="filters" role="toolbar" aria-label="Фильтры проектов по технологиям">
                     <button class="filter-btn filter-btn--active" data-filter="all" type="button" aria-pressed="true">
                         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -81,30 +76,14 @@
                     </button>
                 </div>
 
-                <!-- Сетка проектов с контейнерными запросами -->
                 <div class="projects-area">
                     <div class="projects-grid" id="projectsGrid">
-                        <!-- Проект 1: Личный сайт -->
                         <article class="card project-card" data-category="html">
                             <div class="card__image-wrapper">
-                                <!-- Picture element с разными изображениями для разных экранов -->
                                 <picture>
-                                    <!-- Большое изображение для десктопов -->
-                                    <source
-                                        media="(min-width: 1200px)"
-                                        srcset="../images/mysite.png">
-                                    <!-- Среднее для планшетов -->
-                                    <source
-                                        media="(min-width: 768px)"
-                                        srcset="../images/mysite.png">
-                                    <!-- Маленькое для мобильных (по умолчанию) -->
-                                    <img
-                                        class="card__image object-fit-cover"
-                                        src="../images/mysite.png"
-                                        width="400"
-                                        height="220"
-                                        alt="Скриншот личного сайта"
-                                        loading="lazy">
+                                    <source media="(min-width: 1200px)" srcset="../images/mysite.png">
+                                    <source media="(min-width: 768px)" srcset="../images/mysite.png">
+                                    <img class="card__image object-fit-cover" src="../images/mysite.png" width="400" height="220" alt="Скриншот личного сайта" loading="lazy">
                                 </picture>
                                 <span class="card__badge badge badge--primary">HTML/CSS</span>
                             </div>
@@ -133,23 +112,12 @@
                             </div>
                         </article>
 
-                        <!-- Проект 2: Todo-приложение -->
                         <article class="card project-card" data-category="js">
                             <div class="card__image-wrapper">
                                 <picture>
-                                    <source
-                                        media="(min-width: 1200px)"
-                                        srcset="../images/todolist.jpg">
-                                    <source
-                                        media="(min-width: 768px)"
-                                        srcset="../images/todolist.jpg">
-                                    <img
-                                        class="card__image object-fit-cover"
-                                        src="../images/todolist.jpg"
-                                        width="400"
-                                        height="220"
-                                        alt="Скриншот Todo-приложения"
-                                        loading="lazy">
+                                    <source media="(min-width: 1200px)" srcset="../images/todolist.jpg">
+                                    <source media="(min-width: 768px)" srcset="../images/todolist.jpg">
+                                    <img class="card__image object-fit-cover" src="../images/todolist.jpg" width="400" height="220" alt="Скриншот Todo-приложения" loading="lazy">
                                 </picture>
                                 <span class="card__badge badge badge--success">JavaScript</span>
                             </div>
@@ -177,23 +145,12 @@
                             </div>
                         </article>
 
-                        <!-- Проект 3: Интернет-магазин -->
                         <article class="card project-card" data-category="react">
                             <div class="card__image-wrapper">
                                 <picture>
-                                    <source
-                                        media="(min-width: 1200px)"
-                                        srcset="../images/eshop.png">
-                                    <source
-                                        media="(min-width: 768px)"
-                                        srcset="../images/eshop.png">
-                                    <img
-                                        class="card__image object-fit-cover"
-                                        src="../images/eshop.png"
-                                        width="400"
-                                        height="220"
-                                        alt="Скриншот интернет-магазина"
-                                        loading="lazy">
+                                    <source media="(min-width: 1200px)" srcset="../images/eshop.png">
+                                    <source media="(min-width: 768px)" srcset="../images/eshop.png">
+                                    <img class="card__image object-fit-cover" src="../images/eshop.png" width="400" height="220" alt="Скриншот интернет-магазина" loading="lazy">
                                 </picture>
                                 <span class="card__badge badge badge--info">React</span>
                             </div>
@@ -221,27 +178,13 @@
                             </div>
                         </article>
 
-                        <!-- Проект 4: Портфолио Bootstrap -->
                         <article class="card project-card" data-category="html">
                             <div class="card__image-wrapper">
                                 <picture>
-                                    <!-- WebP формат для современных браузеров -->
-                                    <source
-                                        type="image/webp"
-                                        srcset="../images/portfolio.webp">
-                                    <source
-                                        media="(min-width: 1200px)"
-                                        srcset="../images/portfolio.webp">
-                                    <source
-                                        media="(min-width: 768px)"
-                                        srcset="../images/portfolio.webp">
-                                    <img
-                                        class="card__image object-fit-cover"
-                                        src="../images/portfolio.webp"
-                                        width="400"
-                                        height="220"
-                                        alt="Скриншот портфолио Bootstrap"
-                                        loading="lazy">
+                                    <source type="image/webp" srcset="../images/portfolio.webp">
+                                    <source media="(min-width: 1200px)" srcset="../images/portfolio.webp">
+                                    <source media="(min-width: 768px)" srcset="../images/portfolio.webp">
+                                    <img class="card__image object-fit-cover" src="../images/portfolio.webp" width="400" height="220" alt="Скриншот портфолио Bootstrap" loading="lazy">
                                 </picture>
                                 <span class="card__badge badge badge--primary">HTML/CSS</span>
                             </div>
@@ -269,23 +212,12 @@
                             </div>
                         </article>
 
-                        <!-- Проект 5: Калькулятор -->
                         <article class="card project-card" data-category="js">
                             <div class="card__image-wrapper">
                                 <picture>
-                                    <source
-                                        media="(min-width: 1200px)"
-                                        srcset="../images/calculator.png">
-                                    <source
-                                        media="(min-width: 768px)"
-                                        srcset="../images/calculator.png">
-                                    <img
-                                        class="card__image object-fit-cover"
-                                        src="../images/calculator.png"
-                                        width="400"
-                                        height="220"
-                                        alt="Скриншот калькулятора"
-                                        loading="lazy">
+                                    <source media="(min-width: 1200px)" srcset="../images/calculator.png">
+                                    <source media="(min-width: 768px)" srcset="../images/calculator.png">
+                                    <img class="card__image object-fit-cover" src="../images/calculator.png" width="400" height="220" alt="Скриншот калькулятора" loading="lazy">
                                 </picture>
                                 <span class="card__badge badge badge--success">JavaScript</span>
                             </div>
@@ -312,23 +244,12 @@
                             </div>
                         </article>
 
-                        <!-- Проект 6: Погодное приложение -->
                         <article class="card project-card" data-category="react">
                             <div class="card__image-wrapper">
                                 <picture>
-                                    <source
-                                        media="(min-width: 1200px)"
-                                        srcset="../images/weather.png">
-                                    <source
-                                        media="(min-width: 768px)"
-                                        srcset="../images/weather.png">
-                                    <img
-                                        class="card__image object-fit-cover"
-                                        src="../images/weather.png"
-                                        width="400"
-                                        height="220"
-                                        alt="Скриншот погодного приложения"
-                                        loading="lazy">
+                                    <source media="(min-width: 1200px)" srcset="../images/weather.png">
+                                    <source media="(min-width: 768px)" srcset="../images/weather.png">
+                                    <img class="card__image object-fit-cover" src="../images/weather.png" width="400" height="220" alt="Скриншот погодного приложения" loading="lazy">
                                 </picture>
                                 <span class="card__badge badge badge--info">React</span>
                             </div>
@@ -361,7 +282,6 @@
         </section>
     </main>
 
-    <!-- Модальные окна (чистый CSS через :target) -->
     <div class="modal" id="modal-project1" role="dialog" aria-labelledby="modal-project1-title" aria-modal="true">
         <a href="#!" class="modal__overlay" aria-label="Закрыть"></a>
         <div class="modal__content">
@@ -498,7 +418,7 @@
             <div class="modal__header">
                 <h2 class="modal__title" id="modal-project6-title">Погодное приложение</h2>
                 <a href="#!" class="modal__close" aria-label="Закрыть">&times;</a>
-                    </div>
+            </div>
             <div class="modal__body">
                 <picture>
                     <source media="(min-width: 768px)" srcset="../images/weather.png">
@@ -518,7 +438,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer__inner">

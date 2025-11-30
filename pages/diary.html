@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body class="page">
-    <!-- Skip-link для доступности -->
     <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
-    <!-- Header с навигацией -->
     <header class="header" role="banner">
         <div class="header__inner">
             <a class="header__logo" href="../index.html" aria-label="Игорь Швец - на главную">
@@ -35,7 +33,6 @@
     </header>
 
     <main id="main" role="main">
-        <!-- Hero секция -->
         <section class="hero hero--centered" aria-labelledby="page-title">
             <div class="container">
                 <div class="hero__inner">
@@ -45,17 +42,14 @@
             </div>
         </section>
 
-        <!-- Секция дневника -->
         <section class="section" aria-labelledby="diary-title">
             <div class="container">
                 <h2 id="diary-title" class="visually-hidden">Записи дневника и текущие курсы</h2>
 
                 <div class="two-column two-column--wide-left">
-                    <!-- Записи дневника -->
                     <div>
                         <h3 style="font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem); margin: 0 0 var(--space-lg);">Записи дневника</h3>
 
-                        <!-- Запись 1 -->
                         <article class="diary-entry">
                             <div class="diary-entry__header">
                                 <time class="diary-entry__date" datetime="2024-12-15">
@@ -75,7 +69,6 @@
                             </div>
                         </article>
 
-                        <!-- Запись 2 -->
                         <article class="diary-entry">
                             <div class="diary-entry__header">
                                 <time class="diary-entry__date" datetime="2024-12-10">
@@ -94,7 +87,6 @@
                             </div>
                         </article>
 
-                        <!-- Запись 3 -->
                         <article class="diary-entry">
                             <div class="diary-entry__header">
                                 <time class="diary-entry__date" datetime="2024-12-05">
@@ -113,7 +105,6 @@
                             </div>
                         </article>
 
-                        <!-- Запись 4 -->
                         <article class="diary-entry">
                             <div class="diary-entry__header">
                                 <time class="diary-entry__date" datetime="2024-12-01">
@@ -132,7 +123,6 @@
                             </div>
                         </article>
 
-                        <!-- Запись 5 -->
                         <article class="diary-entry">
                             <div class="diary-entry__header">
                                 <time class="diary-entry__date" datetime="2024-11-25">
@@ -152,11 +142,9 @@
                         </article>
                     </div>
 
-                    <!-- Сайдбар с курсами -->
                     <aside>
                         <h3 style="font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem); margin: 0 0 var(--space-lg);">Текущие курсы</h3>
 
-                        <!-- Курс 1 -->
                         <div class="course-card">
                             <h4 class="course-card__title">Веб-разработка</h4>
                             <div class="course-card__progress-header">
@@ -169,7 +157,6 @@
                             <p class="course-card__description">Основы HTML, CSS и современных подходов к верстке</p>
                         </div>
 
-                        <!-- Курс 2 -->
                         <div class="course-card">
                             <h4 class="course-card__title">JavaScript</h4>
                             <div class="course-card__progress-header">
@@ -182,7 +169,6 @@
                             <p class="course-card__description">Программирование на JavaScript и работа с DOM</p>
                         </div>
 
-                        <!-- Курс 3 -->
                         <div class="course-card">
                             <h4 class="course-card__title">React</h4>
                             <div class="course-card__progress-header">
@@ -195,7 +181,6 @@
                             <p class="course-card__description">Современная библиотека для создания пользовательских интерфейсов</p>
                         </div>
 
-                        <!-- Курс 4 -->
                         <div class="course-card">
                             <h4 class="course-card__title">Git & GitHub</h4>
                             <div class="course-card__progress-header">
@@ -208,7 +193,6 @@
                             <p class="course-card__description">Контроль версий и совместная разработка</p>
                         </div>
 
-                        <!-- Форма добавления записи -->
                         <div class="card" style="margin-top: var(--space-md);">
                             <div class="card__body">
                                 <h4 id="add-entry-title" class="card__subtitle">Добавить запись</h4>
@@ -259,7 +243,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer__inner">

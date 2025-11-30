@@ -1,10 +1,8 @@
-/* ===================================================
-   ЧИСТЫЙ CSS - АДАПТИВНАЯ ВЁРСТКА (Практика 15)
-   =================================================== */
 
-/* --- 0. CSS Custom Properties (переменные) --- */
+
+
 :root {
-    /* Цветовая палитра */
+    
     --color-primary: #667eea;
     --color-primary-dark: #5a67d8;
     --color-secondary: #764ba2;
@@ -14,19 +12,19 @@
     --color-danger: #ef4444;
     --color-info: #06b6d4;
 
-    /* Фоны */
+    
     --bg-body: #f8fafc;
     --bg-white: #ffffff;
     --bg-dark: #1e293b;
     --bg-light: #f1f5f9;
 
-    /* Текст - улучшенный контраст */
+    
     --text-primary: #0f172a;
-    --text-secondary: #475569; /* Улучшен контраст с 64748b */
-    --text-muted: #64748b; /* Улучшен контраст с 94a3b8 */
+    --text-secondary: #475569; 
+    --text-muted: #64748b; 
     --text-white: #ffffff;
 
-    /* Отступы */
+    
     --space-xs: 0.25rem;
     --space-sm: 0.5rem;
     --space-md: 1rem;
@@ -35,32 +33,32 @@
     --space-2xl: 3rem;
     --space-3xl: 4rem;
 
-    /* Радиусы */
+    
     --radius-sm: 0.375rem;
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
     --radius-xl: 1rem;
     --radius-full: 9999px;
 
-    /* Тени */
+    
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 
-    /* Типографика */
+    
     --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --font-size-base: 16px;
     --line-height-base: 1.6;
 
-    /* Контейнер */
+    
     --container-max: 72rem;
 
-    /* Цветовая схема (light/dark) */
+    
     color-scheme: light dark;
 }
 
-/* --- 1. Базовый сброс и каркас --- */
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -80,7 +78,7 @@ body {
     color: var(--text-primary);
 }
 
-/* Обёртка страницы (flex-колонка для прижатия футера) */
+
 .page {
     min-height: 100vh;
     min-height: 100svh;
@@ -93,7 +91,7 @@ main {
     flex: 1;
 }
 
-/* --- 2. Skip-link для доступности --- */
+
 .skip-link {
     position: absolute;
     inset-inline-start: var(--space-md);
@@ -113,7 +111,7 @@ main {
     inset-block-start: var(--space-md);
 }
 
-/* --- 3. Видимый фокус (доступность WCAG 2.4.7) --- */
+
 :focus-visible {
     outline: 3px solid var(--color-accent);
     outline-offset: 3px;
@@ -127,7 +125,7 @@ a, button, input, textarea, select {
     outline-offset: 3px;
 }
 
-/* Улучшенный фокус для интерактивных элементов */
+
 .btn:focus-visible,
 .filter-btn:focus-visible,
 .nav__link:focus-visible,
@@ -137,7 +135,7 @@ a, button, input, textarea, select {
     box-shadow: 0 0 0 6px rgb(37 99 235 / 0.2);
 }
 
-/* Крупные цели клика на тач-устройствах */
+
 @media (pointer: coarse) {
     a, button, .nav__link, .filter-btn {
         min-height: 44px;
@@ -145,7 +143,7 @@ a, button, input, textarea, select {
     }
 }
 
-/* --- 4. Контейнер --- */
+
 .container {
     width: 100%;
     max-width: var(--container-max);
@@ -153,7 +151,7 @@ a, button, input, textarea, select {
     padding-inline: clamp(var(--space-md), calc(0.5rem + 2vw), var(--space-xl));
 }
 
-/* --- 5. Header / Навигация (Sticky с safe-area) --- */
+
 .header {
     position: sticky;
     top: 0;
@@ -205,7 +203,7 @@ a, button, input, textarea, select {
     font-size: 1rem;
 }
 
-/* Навигация */
+
 .nav {
     display: flex;
     align-items: center;
@@ -226,7 +224,7 @@ a, button, input, textarea, select {
     display: inline-flex;
     align-items: center;
     padding: var(--space-sm) var(--space-md);
-    min-height: 44px; /* WCAG 2.5.5 */
+    min-height: 44px; 
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
@@ -255,7 +253,7 @@ a, button, input, textarea, select {
     border-radius: 1px;
 }
 
-/* Бургер-меню для мобильных */
+
 .nav__toggle {
     display: none;
     padding: var(--space-sm);
@@ -333,7 +331,7 @@ a, button, input, textarea, select {
     }
 }
 
-/* --- 6. Hero секция --- */
+
 .hero {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     color: var(--text-white);
@@ -387,7 +385,7 @@ a, button, input, textarea, select {
     max-width: 65ch;
 }
 
-/* Hero для внутренних страниц (центрированный) */
+
 .hero--centered {
     text-align: center;
 }
@@ -397,7 +395,7 @@ a, button, input, textarea, select {
     justify-content: center;
 }
 
-/* --- 7. Кнопки (WCAG 2.5.5: минимум 44x44px) --- */
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -477,7 +475,7 @@ a, button, input, textarea, select {
     color: var(--text-white);
 }
 
-/* --- 8. Секции --- */
+
 .section {
     padding-block: clamp(var(--space-xl), 5vw, var(--space-3xl));
 }
@@ -494,7 +492,7 @@ a, button, input, textarea, select {
     color: var(--text-primary);
 }
 
-/* --- 9. Grid-сетка для карточек (auto-fit + minmax) --- */
+
 .projects-area {
     container-type: inline-size;
     container-name: projects;
@@ -506,7 +504,7 @@ a, button, input, textarea, select {
     gap: var(--space-lg);
 }
 
-/* Контейнерные запросы (CQ) */
+
 @supports (container-type: inline-size) {
     @container projects (max-width: 640px) {
         .projects-grid {
@@ -527,7 +525,7 @@ a, button, input, textarea, select {
     }
 }
 
-/* --- 10. Карточки --- */
+
 .card {
     background: var(--bg-white);
     border-radius: var(--radius-lg);
@@ -602,7 +600,7 @@ a, button, input, textarea, select {
     margin-top: auto;
 }
 
-/* --- 11. Бейджи (теги) --- */
+
 .badge {
     display: inline-flex;
     align-items: center;
@@ -634,7 +632,7 @@ a, button, input, textarea, select {
     color: var(--text-white);
 }
 
-/* --- 12. Прогресс-бары --- */
+
 .progress {
     height: 10px;
     background: var(--bg-light);
@@ -649,7 +647,7 @@ a, button, input, textarea, select {
     transition: width 0.3s ease;
 }
 
-/* --- 13. Навыки (секция) --- */
+
 .skills__list {
     max-width: 48rem;
     margin-inline: auto;
@@ -674,7 +672,7 @@ a, button, input, textarea, select {
     color: var(--text-muted);
 }
 
-/* --- 14. Фильтры --- */
+
 .filters {
     display: flex;
     justify-content: center;
@@ -688,7 +686,7 @@ a, button, input, textarea, select {
     align-items: center;
     gap: var(--space-xs);
     padding: var(--space-sm) var(--space-lg);
-    min-height: 44px; /* WCAG 2.5.5 */
+    min-height: 44px; 
     font: inherit;
     font-weight: 500;
     background: var(--bg-white);
@@ -709,7 +707,7 @@ a, button, input, textarea, select {
     color: var(--text-white);
 }
 
-/* --- 15. Формы (доступность) --- */
+
 .form-fieldset {
     border: none;
     padding: 0;
@@ -759,7 +757,7 @@ a, button, input, textarea, select {
     box-shadow: 0 0 0 3px rgb(102 126 234 / 0.2);
 }
 
-/* Улучшенный фокус для клавиатуры */
+
 .form-input:focus-visible,
 .form-textarea:focus-visible,
 .form-select:focus-visible {
@@ -809,7 +807,7 @@ a, button, input, textarea, select {
     display: block;
 }
 
-/* Состояния валидации */
+
 .form-input--invalid,
 .form-textarea--invalid {
     border-color: var(--color-danger);
@@ -825,7 +823,7 @@ a, button, input, textarea, select {
     border-color: var(--color-success);
 }
 
-/* Визуально скрытый (для screen readers) */
+
 .visually-hidden {
     position: absolute !important;
     width: 1px;
@@ -838,7 +836,7 @@ a, button, input, textarea, select {
     border: 0;
 }
 
-/* --- 16. Layout для страницы контактов/дневника --- */
+
 .two-column {
     display: grid;
     gap: var(--space-xl);
@@ -858,8 +856,8 @@ a, button, input, textarea, select {
     }
 }
 
-/* --- 17. Контактная информация --- */
-/* Подзаголовки секций */
+
+
 .section-subtitle {
     font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem);
     font-weight: 600;
@@ -867,7 +865,7 @@ a, button, input, textarea, select {
     color: var(--text-primary);
 }
 
-/* Список контактов */
+
 .contact-list {
     list-style: none;
     padding: 0;
@@ -923,7 +921,7 @@ a, button, input, textarea, select {
     text-decoration: underline;
 }
 
-/* Card подзаголовки */
+
 .card__subtitle {
     font-size: 1rem;
     font-weight: 600;
@@ -937,7 +935,7 @@ a, button, input, textarea, select {
     margin: 0;
 }
 
-/* Социальные кнопки */
+
 .social-links {
     display: flex;
     gap: var(--space-sm);
@@ -970,7 +968,7 @@ a, button, input, textarea, select {
     fill: currentColor;
 }
 
-/* --- 18. Записи дневника --- */
+
 .diary-entry {
     background: var(--bg-white);
     border-radius: var(--radius-lg);
@@ -1008,7 +1006,7 @@ a, button, input, textarea, select {
     line-height: 1.7;
 }
 
-/* Курсы (сайдбар) */
+
 .course-card {
     background: var(--bg-white);
     border-radius: var(--radius-lg);
@@ -1045,7 +1043,7 @@ a, button, input, textarea, select {
     margin: var(--space-sm) 0 0;
 }
 
-/* --- 19. Footer --- */
+
 .footer {
     background: var(--bg-dark);
     color: var(--text-white);
@@ -1095,7 +1093,7 @@ a, button, input, textarea, select {
     }
 }
 
-/* --- 20. Утилиты --- */
+
 .text-center {
     text-align: center;
 }
@@ -1112,7 +1110,7 @@ a, button, input, textarea, select {
     flex: 1;
 }
 
-/* --- 21. Доступность: снижение движения --- */
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -1127,7 +1125,7 @@ html {
     }
 }
 
-/* --- 22. Доступность: повышенный контраст --- */
+
 @media (prefers-contrast: more) {
     :root {
         --text-secondary: #1e293b;
@@ -1165,7 +1163,7 @@ html {
     }
 }
 
-/* --- 22a. Поддержка Windows High Contrast Mode --- */
+
 @media (forced-colors: active) {
     .btn,
     .filter-btn,
@@ -1184,7 +1182,7 @@ html {
     }
 }
 
-/* --- 23. Alert сообщения --- */
+
 .alert {
     padding: var(--space-md) var(--space-lg);
     border-radius: var(--radius-md);
@@ -1204,7 +1202,7 @@ html {
     display: none;
 }
 
-/* --- 24. SVG Иконки встроенные --- */
+
 .icon {
     width: 1.25em;
     height: 1.25em;
@@ -1212,7 +1210,7 @@ html {
     vertical-align: -0.125em;
 }
 
-/* --- 25. Модальное окно --- */
+
 .modal {
     position: fixed;
     inset: 0;
@@ -1235,7 +1233,7 @@ html {
     pointer-events: auto;
 }
 
-/* Закрытие по клику на оверлей */
+
 .modal__overlay {
     position: absolute;
     inset: 0;
@@ -1309,17 +1307,15 @@ html {
     gap: var(--space-sm);
 }
 
-/* --- 26. Full-bleed секция --- */
+
 .full-bleed {
     margin-inline: calc(50% - 50vw);
     padding-inline: calc(50vw - 50%);
 }
 
-/* ===================================================
-   27. АДАПТИВНЫЕ ИЗОБРАЖЕНИЯ (Практика 16)
-   =================================================== */
 
-/* Базовое адаптивное изображение */
+
+
 .responsive-image {
     width: 100%;
     height: auto;
@@ -1327,17 +1323,17 @@ html {
     border-radius: var(--radius-md);
 }
 
-/* Picture element */
+
 picture {
     display: block;
 }
 
-/* Retina изображение */
+
 .retina-image {
     display: block;
 }
 
-/* Object-fit варианты */
+
 .object-fit-cover {
     object-fit: cover;
 }
@@ -1351,7 +1347,7 @@ picture {
     object-fit: fill;
 }
 
-/* --- 28. Адаптивная галерея (без обрезки) --- */
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1382,7 +1378,7 @@ picture {
     transform: scale(1.05);
 }
 
-/* Галерея - адаптивность */
+
 @media (max-width: 992px) {
     .gallery {
         grid-template-columns: repeat(3, 1fr);
@@ -1409,7 +1405,7 @@ picture {
     }
 }
 
-/* --- 29. Object-fit демонстрация --- */
+
 .object-fit-demo {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1445,7 +1441,7 @@ picture {
     }
 }
 
-/* --- 30. Aspect Ratio контейнеры --- */
+
 .aspect-ratio-16-9 {
     aspect-ratio: 16 / 9;
 }
@@ -1464,7 +1460,7 @@ picture {
     object-fit: cover;
 }
 
-/* --- 31. Lazy loading placeholder --- */
+
 .lazy-image {
     background: linear-gradient(90deg, var(--bg-light) 25%, var(--bg-body) 50%, var(--bg-light) 75%);
     background-size: 200% 100%;
@@ -1481,7 +1477,7 @@ picture {
     background: none;
 }
 
-/* --- 32. Темная тема для изображений --- */
+
 @media (prefers-color-scheme: dark) {
     .object-fit-contain {
         background: var(--bg-dark);
@@ -1492,14 +1488,14 @@ picture {
     }
 }
 
-/* --- 33. Поддержка высоких экранов --- */
+
 @media (min-height: 800px) and (min-width: 1200px) {
     .gallery__image {
         height: 280px;
     }
 }
 
-/* --- 34. Адаптивность для печати --- */
+
 @media print {
     .card,
     .gallery__item {

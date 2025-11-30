@@ -1,21 +1,13 @@
-/**
- * Валидация форм - чистый JavaScript с поддержкой доступности
- */
-
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
 
     if (!form) return;
 
-    /**
-     * Валидирует поле и возвращает сообщение об ошибке или пустую строку
-     */
     function validateField(field) {
         const value = field.value.trim();
         const type = field.type;
         const name = field.name;
 
-        // Проверка обязательности
         if (field.required && !value) {
             if (name === 'name') return 'Пожалуйста, введите ваше имя';
             if (name === 'email') return 'Пожалуйста, введите email';
@@ -23,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return 'Это поле обязательно для заполнения';
         }
 
-        // Проверка минимальной длины
         const minLength = field.getAttribute('minlength');
         if (minLength && value.length < parseInt(minLength)) {
             if (name === 'name') return `Имя должно содержать минимум ${minLength} символа`;
@@ -31,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return `Минимум ${minLength} символов`;
         }
 
-        // Проверка email
         if (type === 'email' && value) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(value)) {
@@ -39,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Проверка телефона (если заполнен)
         if (type === 'tel' && value) {
             const phoneRegex = /^[\d\s\+\-\(\)]+$/;
             if (!phoneRegex.test(value) || value.length < 10) {
@@ -47,12 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        return ''; // Нет ошибок
+        return '';
     }
 
-    /**
-     * Обновляет визуальное состояние поля и ARIA атрибуты
-     */
     function updateFieldState(field, errorMessage) {
         const isTextarea = field.tagName === 'TEXTAREA';
         const validClass = isTextarea ? 'form-textarea--valid' : 'form-input--valid';
@@ -60,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const errorElement = document.getElementById(`${field.name}-error`);
 
         if (errorMessage) {
-            // Поле невалидно
             field.classList.remove(validClass);
             field.classList.add(invalidClass);
             field.setAttribute('aria-invalid', 'true');
@@ -70,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 field.setAttribute('aria-describedby', `${field.name}-hint ${field.name}-error`);
             }
         } else {
-            // Поле валидно
             field.classList.remove(invalidClass);
             field.classList.add(validClass);
             field.setAttribute('aria-invalid', 'false');
@@ -82,9 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    /**
-     * Сбрасывает состояние поля
-     */
     function resetFieldState(field) {
         field.classList.remove(
             'form-input--valid',
@@ -100,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Обработка отправки формы
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -119,32 +99,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (formIsValid) {
-            // Форма валидна - показываем сообщение об успехе
             const successMessage = document.getElementById('formSuccess');
             if (successMessage) {
                 successMessage.classList.remove('alert--hidden');
                 successMessage.focus();
 
-                // Скрываем через 5 секунд
                 setTimeout(() => {
                     successMessage.classList.add('alert--hidden');
                 }, 5000);
             }
 
-            // Сбрасываем форму
             form.reset();
             fields.forEach(resetFieldState);
 
             console.log('Форма успешно отправлена!');
         } else {
-            // Фокус на первое невалидное поле
             if (firstInvalidField) {
                 firstInvalidField.focus();
             }
         }
     });
 
-    // Валидация в реальном времени
     const inputs = form.querySelectorAll('input, textarea');
     inputs.forEach(input => {
         input.addEventListener('input', function() {
@@ -156,7 +131,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Валидация при потере фокуса
         input.addEventListener('blur', function() {
             if (this.required || this.value.length > 0) {
                 const errorMessage = validateField(this);

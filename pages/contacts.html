@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body class="page">
-    <!-- Skip-link для доступности -->
     <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
-    <!-- Header с навигацией -->
     <header class="header" role="banner">
         <div class="header__inner">
             <a class="header__logo" href="../index.html" aria-label="Игорь Швец - на главную">
@@ -35,7 +33,6 @@
     </header>
 
     <main id="main" role="main">
-        <!-- Hero секция -->
         <section class="hero hero--centered" aria-labelledby="page-title">
             <div class="container">
                 <div class="hero__inner">
@@ -45,32 +42,27 @@
             </div>
         </section>
 
-        <!-- Секция контактов -->
         <section class="section" aria-labelledby="contacts-title">
             <div class="container">
                 <h2 id="contacts-title" class="visually-hidden">Контактная информация и форма связи</h2>
 
                 <div class="two-column two-column--wide-right">
-                    <!-- Контактная информация -->
                     <div>
                         <h3 id="contact-info-title" class="section-subtitle">Контактная информация</h3>
 
-                        <!-- Список контактов -->
                         <ul class="contact-list" role="list" aria-labelledby="contact-info-title">
-                            <!-- Email -->
                             <li class="contact-card">
                                 <div class="contact-card__icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" focusable="false">
                                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                                     </svg>
-                                        </div>
+                                </div>
                                 <div class="contact-card__content">
                                     <h4 class="contact-card__title">Email</h4>
                                     <a href="mailto:aboba@edu.ru" class="contact-card__link">aboba@edu.ru</a>
-                                    </div>
+                                </div>
                             </li>
 
-                            <!-- GitHub -->
                             <li class="contact-card">
                                 <div class="contact-card__icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" focusable="false">
@@ -86,7 +78,6 @@
                                 </div>
                             </li>
 
-                            <!-- Местоположение -->
                             <li class="contact-card">
                                 <div class="contact-card__icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" focusable="false">
@@ -100,7 +91,6 @@
                             </li>
                         </ul>
 
-                        <!-- Социальные сети -->
                         <div class="card">
                             <div class="card__body">
                                 <h4 id="social-title" class="card__subtitle">Социальные сети</h4>
@@ -129,7 +119,6 @@
                             </div>
                         </div>
 
-                        <!-- Доступность для работы -->
                         <div class="card">
                             <div class="card__body">
                                 <h4 class="card__subtitle">Доступность</h4>
@@ -138,7 +127,6 @@
                         </div>
                     </div>
 
-                    <!-- Форма обратной связи -->
                     <div class="card">
                         <div class="card__body">
                             <h3 id="form-title" class="section-subtitle">Отправить сообщение</h3>
@@ -231,7 +219,6 @@
                                 </fieldset>
                             </form>
 
-                            <!-- Сообщение об успешной отправке -->
                             <div id="formSuccess" class="alert alert--success alert--hidden" role="status" aria-live="polite">
                                 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
@@ -245,7 +232,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer__inner">
