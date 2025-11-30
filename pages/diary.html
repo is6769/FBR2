@@ -2,263 +2,275 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Учебный дневник - Игорь Швец</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
-<body>
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-primary" href="../index.html">
-                <i class="bi bi-person-circle me-2"></i>Игорь Швец
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="projects.html">Проекты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="diary.html">Дневник</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacts.html">Контакты</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body class="page">
+    <!-- Skip-link для доступности -->
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
-    <main>
-        
-        <section class="hero-section bg-gradient py-5">
-            <div class="container text-center text-white">
-                <h1 class="display-4 fw-bold">Мой учебный прогресс</h1>
-                <p class="lead">Отслеживание моего образовательного пути и достижений</p>
+    <!-- Header с навигацией -->
+    <header class="header" role="banner">
+        <div class="header__inner">
+            <a class="header__logo" href="../index.html">
+                <span class="header__logo-icon" aria-hidden="true">ИШ</span>
+                Игорь Швец
+            </a>
+
+            <button class="nav__toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+                <span class="nav__toggle-icon"></span>
+            </button>
+
+            <nav class="nav" aria-label="Основная навигация">
+                <ul class="nav__list">
+                    <li><a class="nav__link" href="../index.html">Главная</a></li>
+                    <li><a class="nav__link" href="projects.html">Проекты</a></li>
+                    <li><a class="nav__link nav__link--active" href="diary.html" aria-current="page">Дневник</a></li>
+                    <li><a class="nav__link" href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero секция -->
+        <section class="hero hero--centered">
+            <div class="container">
+                <div class="hero__inner">
+                    <h1 class="hero__title">Мой учебный прогресс</h1>
+                    <p class="hero__subtitle">Отслеживание моего образовательного пути и достижений</p>
+                </div>
             </div>
         </section>
 
-        
-        <section class="py-5">
+        <!-- Секция дневника -->
+        <section class="section" aria-labelledby="diary-title">
             <div class="container">
-                <div class="row g-4">
-                    
-                    <div class="col-lg-8">
-                        <h2 class="mb-4">Записи дневника</h2>
-                        
-                        
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <small class="text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>15 декабря 2024
-                                    </small>
-                                    <span class="badge bg-success">✓ Завершено</span>
-                                </div>
-                                <h5 class="card-title">Верстка макета сайта</h5>
-                                <p class="card-text">Завершил работу над адаптивным макетом личного сайта. Использовал CSS Grid и Flexbox для создания современного и отзывчивого дизайна. Сайт корректно отображается на всех устройствах.</p>
-                                <div>
-                                    <span class="badge bg-primary me-1">HTML</span>
-                                    <span class="badge bg-primary me-1">CSS</span>
-                                    <span class="badge bg-primary">Grid</span>
-                                </div>
-                            </div>
-                        </div>
+                <h2 id="diary-title" class="visually-hidden">Записи дневника и текущие курсы</h2>
 
-                        
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <small class="text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>10 декабря 2024
-                                    </small>
-                                    <span class="badge bg-success">✓ Завершено</span>
-                                </div>
-                                <h5 class="card-title">JavaScript основы</h5>
-                                <p class="card-text">Изучил основы JavaScript: переменные, типы данных, условные операторы и циклы. Решил несколько практических задач на CodeWars. Начал понимать асинхронность и работу с промисами.</p>
-                                <div>
-                                    <span class="badge bg-success me-1">JavaScript</span>
-                                    <span class="badge bg-success">ES6</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="two-column two-column--wide-left">
+                    <!-- Записи дневника -->
+                    <div>
+                        <h3 style="font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem); margin: 0 0 var(--space-lg);">Записи дневника</h3>
 
-                        
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <small class="text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>5 декабря 2024
-                                    </small>
-                                    <span class="badge bg-warning text-dark">⏳ В процессе</span>
-                                </div>
-                                <h5 class="card-title">Работа с формами</h5>
-                                <p class="card-text">Изучаю валидацию форм на стороне клиента. Реализовал базовую проверку email и телефона с использованием регулярных выражений. Планирую добавить более сложную валидацию.</p>
-                                <div>
-                                    <span class="badge bg-primary me-1">HTML Forms</span>
-                                    <span class="badge bg-primary">JavaScript</span>
-                                </div>
+                        <!-- Запись 1 -->
+                        <article class="diary-entry">
+                            <div class="diary-entry__header">
+                                <time class="diary-entry__date" datetime="2024-12-15">
+                                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                                    </svg>
+                                    15 декабря 2024
+                                </time>
+                                <span class="badge badge--success">✓ Завершено</span>
                             </div>
-                        </div>
+                            <h4 class="diary-entry__title">Верстка макета сайта</h4>
+                            <p class="diary-entry__text">Завершил работу над адаптивным макетом личного сайта. Использовал CSS Grid и Flexbox для создания современного и отзывчивого дизайна. Сайт корректно отображается на всех устройствах.</p>
+                            <div class="card__tags">
+                                <span class="badge badge--primary">HTML</span>
+                                <span class="badge badge--primary">CSS</span>
+                                <span class="badge badge--primary">Grid</span>
+                            </div>
+                        </article>
 
-                        
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <small class="text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>1 декабря 2024
-                                    </small>
-                                    <span class="badge bg-warning text-dark">⏳ В процессе</span>
-                                </div>
-                                <h5 class="card-title">Адаптивный дизайн</h5>
-                                <p class="card-text">Работаю над созданием адаптивного меню и оптимизацией изображений для различных разрешений экранов. Использую медиа-запросы и технику mobile-first.</p>
-                                <div>
-                                    <span class="badge bg-info me-1">Responsive</span>
-                                    <span class="badge bg-info">Media Queries</span>
-                                </div>
+                        <!-- Запись 2 -->
+                        <article class="diary-entry">
+                            <div class="diary-entry__header">
+                                <time class="diary-entry__date" datetime="2024-12-10">
+                                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                                    </svg>
+                                    10 декабря 2024
+                                </time>
+                                <span class="badge badge--success">✓ Завершено</span>
                             </div>
-                        </div>
+                            <h4 class="diary-entry__title">JavaScript основы</h4>
+                            <p class="diary-entry__text">Изучил основы JavaScript: переменные, типы данных, условные операторы и циклы. Решил несколько практических задач на CodeWars. Начал понимать асинхронность и работу с промисами.</p>
+                            <div class="card__tags">
+                                <span class="badge badge--success">JavaScript</span>
+                                <span class="badge badge--success">ES6</span>
+                            </div>
+                        </article>
 
-                        
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <small class="text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>25 ноября 2024
-                                    </small>
-                                    <span class="badge bg-success">✓ Завершено</span>
-                                </div>
-                                <h5 class="card-title">Bootstrap основы</h5>
-                                <p class="card-text">Освоил базовые компоненты Bootstrap: сетку, карточки, навигацию и формы. Создал прототип портфолио с использованием готовых компонентов фреймворка.</p>
-                                <div>
-                                    <span class="badge bg-primary me-1">Bootstrap</span>
-                                    <span class="badge bg-primary">CSS Framework</span>
-                                </div>
+                        <!-- Запись 3 -->
+                        <article class="diary-entry">
+                            <div class="diary-entry__header">
+                                <time class="diary-entry__date" datetime="2024-12-05">
+                                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                                    </svg>
+                                    5 декабря 2024
+                                </time>
+                                <span class="badge badge--warning">⏳ В процессе</span>
                             </div>
-                        </div>
+                            <h4 class="diary-entry__title">Работа с формами</h4>
+                            <p class="diary-entry__text">Изучаю валидацию форм на стороне клиента. Реализовал базовую проверку email и телефона с использованием регулярных выражений. Планирую добавить более сложную валидацию.</p>
+                            <div class="card__tags">
+                                <span class="badge badge--primary">HTML Forms</span>
+                                <span class="badge badge--primary">JavaScript</span>
+                            </div>
+                        </article>
+
+                        <!-- Запись 4 -->
+                        <article class="diary-entry">
+                            <div class="diary-entry__header">
+                                <time class="diary-entry__date" datetime="2024-12-01">
+                                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                                    </svg>
+                                    1 декабря 2024
+                                </time>
+                                <span class="badge badge--warning">⏳ В процессе</span>
+                            </div>
+                            <h4 class="diary-entry__title">Адаптивный дизайн</h4>
+                            <p class="diary-entry__text">Работаю над созданием адаптивного меню и оптимизацией изображений для различных разрешений экранов. Использую медиа-запросы и технику mobile-first.</p>
+                            <div class="card__tags">
+                                <span class="badge badge--info">Responsive</span>
+                                <span class="badge badge--info">Media Queries</span>
+                            </div>
+                        </article>
+
+                        <!-- Запись 5 -->
+                        <article class="diary-entry">
+                            <div class="diary-entry__header">
+                                <time class="diary-entry__date" datetime="2024-11-25">
+                                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                                    </svg>
+                                    25 ноября 2024
+                                </time>
+                                <span class="badge badge--success">✓ Завершено</span>
+                            </div>
+                            <h4 class="diary-entry__title">Bootstrap основы</h4>
+                            <p class="diary-entry__text">Освоил базовые компоненты Bootstrap: сетку, карточки, навигацию и формы. Создал прототип портфолио с использованием готовых компонентов фреймворка.</p>
+                            <div class="card__tags">
+                                <span class="badge badge--primary">Bootstrap</span>
+                                <span class="badge badge--primary">CSS Framework</span>
+                            </div>
+                        </article>
                     </div>
 
-                    
-                    <div class="col-lg-4">
-                        <h2 class="mb-4">Текущие курсы</h2>
-                        
-                        
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">Веб-разработка</h5>
-                                <div class="d-flex justify-content-between mb-2">
-                                    <small class="text-muted">Прогресс</small>
-                                    <small class="fw-bold text-primary">90%</small>
-                                </div>
-                                <div class="progress mb-2" style="height: 10px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="card-text small">Основы HTML, CSS и современных подходов к верстке</p>
+                    <!-- Сайдбар с курсами -->
+                    <aside>
+                        <h3 style="font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem); margin: 0 0 var(--space-lg);">Текущие курсы</h3>
+
+                        <!-- Курс 1 -->
+                        <div class="course-card">
+                            <h4 class="course-card__title">Веб-разработка</h4>
+                            <div class="course-card__progress-header">
+                                <span class="course-card__progress-label">Прогресс</span>
+                                <span class="course-card__progress-value">90%</span>
                             </div>
+                            <div class="progress" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Веб-разработка: 90%">
+                                <div class="progress__bar" style="width: 90%"></div>
+                            </div>
+                            <p class="course-card__description">Основы HTML, CSS и современных подходов к верстке</p>
                         </div>
 
-                        
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">JavaScript</h5>
-                                <div class="d-flex justify-content-between mb-2">
-                                    <small class="text-muted">Прогресс</small>
-                                    <small class="fw-bold text-primary">70%</small>
-                                </div>
-                                <div class="progress mb-2" style="height: 10px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="card-text small">Программирование на JavaScript и работа с DOM</p>
+                        <!-- Курс 2 -->
+                        <div class="course-card">
+                            <h4 class="course-card__title">JavaScript</h4>
+                            <div class="course-card__progress-header">
+                                <span class="course-card__progress-label">Прогресс</span>
+                                <span class="course-card__progress-value">70%</span>
                             </div>
+                            <div class="progress" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript: 70%">
+                                <div class="progress__bar" style="width: 70%"></div>
+                            </div>
+                            <p class="course-card__description">Программирование на JavaScript и работа с DOM</p>
                         </div>
 
-                        
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">React</h5>
-                                <div class="d-flex justify-content-between mb-2">
-                                    <small class="text-muted">Прогресс</small>
-                                    <small class="fw-bold text-primary">50%</small>
-                                </div>
-                                <div class="progress mb-2" style="height: 10px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="card-text small">Современная библиотека для создания пользовательских интерфейсов</p>
+                        <!-- Курс 3 -->
+                        <div class="course-card">
+                            <h4 class="course-card__title">React</h4>
+                            <div class="course-card__progress-header">
+                                <span class="course-card__progress-label">Прогресс</span>
+                                <span class="course-card__progress-value">50%</span>
                             </div>
+                            <div class="progress" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="React: 50%">
+                                <div class="progress__bar" style="width: 50%"></div>
+                            </div>
+                            <p class="course-card__description">Современная библиотека для создания пользовательских интерфейсов</p>
                         </div>
 
-                        
-                        <div class="card mb-3 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">Git & GitHub</h5>
-                                <div class="d-flex justify-content-between mb-2">
-                                    <small class="text-muted">Прогресс</small>
-                                    <small class="fw-bold text-primary">75%</small>
-                                </div>
-                                <div class="progress mb-2" style="height: 10px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="card-text small">Контроль версий и совместная разработка</p>
+                        <!-- Курс 4 -->
+                        <div class="course-card">
+                            <h4 class="course-card__title">Git & GitHub</h4>
+                            <div class="course-card__progress-header">
+                                <span class="course-card__progress-label">Прогресс</span>
+                                <span class="course-card__progress-value">75%</span>
                             </div>
+                            <div class="progress" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Git и GitHub: 75%">
+                                <div class="progress__bar" style="width: 75%"></div>
+                            </div>
+                            <p class="course-card__description">Контроль версий и совместная разработка</p>
                         </div>
 
-                        
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">Добавить запись</h5>
+                        <!-- Форма добавления записи -->
+                        <div class="card" style="margin-top: var(--space-md);">
+                            <div class="card__body">
+                                <h4 style="margin: 0 0 var(--space-md); font-size: 1rem;">Добавить запись</h4>
                                 <form id="addEntryForm">
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" placeholder="Название темы" required>
+                                    <div class="form-group">
+                                        <label for="entry-title" class="form-label">Название темы</label>
+                                        <input
+                                            type="text"
+                                            class="form-input"
+                                            id="entry-title"
+                                            name="entry-title"
+                                            placeholder="Название темы"
+                                            required>
                                     </div>
-                                    <div class="mb-3">
-                                        <textarea class="form-control" rows="4" placeholder="Описание..." required></textarea>
+                                    <div class="form-group">
+                                        <label for="entry-desc" class="form-label">Описание</label>
+                                        <textarea
+                                            class="form-textarea"
+                                            id="entry-desc"
+                                            name="entry-desc"
+                                            rows="4"
+                                            placeholder="Описание..."
+                                            required></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary w-100">
-                                        <i class="bi bi-plus-circle me-1"></i>Добавить запись
+                                    <button type="submit" class="btn btn--primary btn--block">
+                                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                        Добавить запись
                                     </button>
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </aside>
                 </div>
             </div>
         </section>
     </main>
 
-    
-    <footer class="bg-dark text-white py-4 mt-5">
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <p class="mb-0">&copy; 2025 Игорь Швец. Все права защищены.</p>
-                </div>
-                <div class="col-md-6">
-                    <div class="d-flex justify-content-center justify-content-md-end gap-3">
-                        <a href="contacts.html" class="text-white text-decoration-none">Контакты</a>
-                        <a href="https://github.com/is6769" class="text-white text-decoration-none">
-                            <i class="bi bi-github"></i> GitHub
-                        </a>
-                        <a href="#" class="text-white text-decoration-none">
-                            <i class="bi bi-linkedin"></i> LinkedIn
-                        </a>
-                    </div>
+            <div class="footer__inner">
+                <p class="footer__copy">&copy; 2025 Игорь Швец. Все права защищены.</p>
+                <div class="footer__links">
+                    <a class="footer__link" href="contacts.html">Контакты</a>
+                    <a class="footer__link" href="https://github.com/is6769" target="_blank" rel="noopener noreferrer">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a class="footer__link" href="#" target="_blank" rel="noopener noreferrer">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/main.js"></script>
 </body>
 </html>
