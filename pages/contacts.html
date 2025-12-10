@@ -152,8 +152,9 @@
                                             placeholder="Введите ваше имя"
                                             required
                                             aria-required="true"
+                                            aria-invalid="false"
                                             minlength="2"
-                                            aria-describedby="name-hint"
+                                            aria-describedby="name-hint name-error"
                                             autocomplete="name">
                                         <span id="name-hint" class="form-hint">Минимум 2 символа</span>
                                         <span id="name-error" class="form-error" role="alert" aria-live="polite"></span>
@@ -172,14 +173,18 @@
                                             placeholder="your.email@example.com"
                                             required
                                             aria-required="true"
-                                            aria-describedby="email-hint"
+                                            aria-invalid="false"
+                                            aria-describedby="email-hint email-error"
                                             autocomplete="email">
                                         <span id="email-hint" class="form-hint">Мы пришлём ответ на этот адрес</span>
                                         <span id="email-error" class="form-error" role="alert" aria-live="polite"></span>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="phone" class="form-label">Телефон</label>
+                                        <label for="phone" class="form-label">
+                                            Телефон
+                                            <span class="visually-hidden">(необязательно)</span>
+                                        </label>
                                         <input
                                             type="tel"
                                             class="form-input"
@@ -204,8 +209,9 @@
                                             placeholder="Введите ваше сообщение..."
                                             required
                                             aria-required="true"
+                                            aria-invalid="false"
                                             minlength="10"
-                                            aria-describedby="message-hint"></textarea>
+                                            aria-describedby="message-hint message-error"></textarea>
                                         <span id="message-hint" class="form-hint">Минимум 10 символов</span>
                                         <span id="message-error" class="form-error" role="alert" aria-live="polite"></span>
                                     </div>
@@ -219,7 +225,7 @@
                                 </fieldset>
                             </form>
 
-                            <div id="formSuccess" class="alert alert--success alert--hidden" role="status" aria-live="polite">
+                            <div id="formSuccess" class="alert alert--success alert--hidden" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">
                                 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                                 </svg>

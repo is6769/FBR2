@@ -52,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (errorElement) {
                 errorElement.textContent = errorMessage;
-                field.setAttribute('aria-describedby', `${field.name}-hint ${field.name}-error`);
             }
         } else {
             field.classList.remove(invalidClass);
@@ -61,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (errorElement) {
                 errorElement.textContent = '';
-                field.setAttribute('aria-describedby', `${field.name}-hint`);
             }
         }
     }
@@ -73,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'form-textarea--valid',
             'form-textarea--invalid'
         );
-        field.removeAttribute('aria-invalid');
+        field.setAttribute('aria-invalid', 'false');
 
         const errorElement = document.getElementById(`${field.name}-error`);
         if (errorElement) {
